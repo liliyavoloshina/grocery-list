@@ -3,31 +3,42 @@ import './css/style.css'
 import data from './data.json'
 import GroceryList from './GroceryList'
 import GrocerySorting from './GrocerySorting'
+import GroceryFiltering from './GroceryFiltering'
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      sortByPriority: false
+      sortByAmount: false,
+      filterText: ''
     }
   }
-
-  handleStateSortByPriority(sort) {
+  handleStateSortByAmount(sort) {
     this.setState({
-      sortByPriority: sort
+      sortByAmount: sort
+    })
+  }
+  handleStateFilterText(text) {
+    this.setState({
+      filterText: text
     })
   }
 
   render() {
     return (
       <div className="app">
+        <div className="grocery-navbar">
+        <GroceryFiltering onFilterText={text => this.handleStateFilterText(text)} />
         <GrocerySorting
-          onSortByPriority={sort => this.handleStateSortByPriority(sort)}
-          sortByPriority={this.state.sortByPriority}
+          onSortByAmount={sort => this.handleStateSortByAmount(sort)}
+          sortByAmount={this.state.sortByAmount}
         />
+        </div>
         <GroceryList
           products={data}
           sortByPriority={this.state.sortByPriority}
+          sortByAmount={this.state.sortByAmount}
+          filterText={this.state.filterText}
         />
       </div>
     )

@@ -2,22 +2,19 @@
   {
     "id": 1,
     "name": "Ice-Cream",
-    "number": 20,
-    "bought": true,
-    "priority": 1
+    "amount": 20,
+    "bought": true
   },
   {
     "id": 2,
     "name": "Chocolate",
-    "number": 3,
-    "bought": false,
-    "priority": 5
+    "amount": 3,
+    "bought": false
   },
   {
     "id": 3,
     "name": "Soap",
-    "number": 1,
-    "bought": false,
-    "priority": 10
+    "amount": 1,
+    "bought": false
   }
 ]

@@ -20,5 +20,18 @@
   padding: 1em;
 }
 
-.grocery-item__name {}
-.grocery-item__priority {}
+.grocery-item__name {
+}
+
+.grocery-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.grocery-sorting__btn {
+  font-size: 28px;
+}
+.grocery-sorting__btn:hover {
+  color: red;
+  cursor: pointer;
+}
