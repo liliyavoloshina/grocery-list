@@ -1,10 +1,17 @@
+:root {
+  --primary-bg: #736f4e;
+  --secondary-bg: #3b3923;
+  --primary-color: #d17a22;
+  --secondary-color: #4c061d;
+}
+
 .app {
   width: 725px;
   height: 200px;
   margin-left: auto;
   margin-right: auto;
   padding: 2em;
-  background-color: red;
+  background-color: var(--primary-bg);
 }
 
 .grocery-list {
@@ -28,10 +35,27 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.grocery-filtering__input {
+  height: 30px;
+  border: 4px solid var(--secondary-bg);
+  outline: none;
+  transition: .3s ease-out;
+}
+
+.grocery-filtering__input:focus {
+  border: 4px solid var(--primary-color);
+}
+
 .grocery-sorting__btn {
   font-size: 28px;
+  font-family: serif;
+  border: 4px solid var(--secondary-bg);
+  transition: .3s ease-out;
 }
+
 .grocery-sorting__btn:hover {
-  color: red;
+  color: var(--primary-color);
+  border: 4px solid var(--primary-color);
   cursor: pointer;
 }

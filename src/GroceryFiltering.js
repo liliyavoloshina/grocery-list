@@ -8,7 +8,7 @@ class GroceryFiltering extends React.Component {
   render() {
     return (
       <div className="grocery-filtering">
-        <input onChange={(e) => this.handleFilterText(e)} placeholder="Search..." />
+        <input onChange={(e) => this.handleFilterText(e)} className="grocery-filtering__input" placeholder="Search..." />
       </div>
     )
   }
