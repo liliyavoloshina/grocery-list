@@ -1,12 +1,15 @@
 import React from 'react'
-import './css/styles.css'
+import './css/style.css'
+import GroceryItem from './GroceryItem'
 class GroceryList extends React.Component {
   render() {
+    const products = []
+    this.props.products.forEach(p => {
+     products.push(<GroceryItem key={p.id} product={p} />) 
+    })
     return (
       <ul className="grocery-list">
-        {this.props.products.map(p => (
-          <li key={p.id}>{p.name}</li>
-        ))}
+        {products}
       </ul>
     )
   }

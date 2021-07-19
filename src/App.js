@@ -1,5 +1,5 @@
 import React from 'react'
-import './css/styles.css'
+import './css/style.css'
 import data from './data.json'
 import GroceryList from './GroceryList'
 
