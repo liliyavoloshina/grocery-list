@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "name": "Ice-Cream",
+    "bought": false,
+    "priority": 1
+  },
+  {
+    "id": 2,
+    "name": "Chocolate",
+    "bought": false,
+    "priority": 5
+  },
+  {
+    "id": 3,
+    "name": "Soap",
+    "bought": false,
+    "priority": 10
+  }
+]
