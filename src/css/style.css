@@ -3,9 +3,22 @@
   height: 200px;
   margin-left: auto;
   margin-right: auto;
+  padding: 2em;
   background-color: red;
 }
 
 .grocery-list {
-  
+  padding: 0;
+  list-style-type: none;
+  background-color: #ffffff;
 }
+
+.grosery-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+.grocery-item__name {}
+.grocery-item__priority {}

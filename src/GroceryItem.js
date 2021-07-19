@@ -1,6 +1,9 @@
 function GroceryItem(props) {
   return (
-    <li>{props.product.name}</li>
+    <li className="grosery-item">
+      <span className="grosery-item__name">{props.product.name}</span>
+      <span className="grosery-item__priority">{props.product.number}/pc.</span>
+    </li>
   )
 }
 
