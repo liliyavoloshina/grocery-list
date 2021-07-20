@@ -6,12 +6,53 @@
 }
 
 .app {
-  width: 725px;
-  height: 200px;
+  max-width: 725px;
   margin-left: auto;
   margin-right: auto;
   padding: 2em;
   background-color: var(--primary-bg);
+}
+
+.grocery-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  padding: 2em 0;
+}
+
+.grocery-navbar__input {
+  width: 90%;
+}
+
+.grocery-navbar__input input {
+  width: 100%;
+  height: 40px;
+  border: 4px solid var(--secondary-bg);
+  outline: none;
+  transition: .3s ease-out;
+}
+
+.grocery-navbar__input input:focus {
+  border: 4px solid var(--primary-color);
+}
+
+.grocery-navbar__btn {
+  margin-left: 1em;
+}
+
+.grocery-navbar__btn button {
+  height: 40px;
+  font-size: 26px;
+  font-family: serif;
+  border: 4px solid var(--secondary-bg);
+  transition: .3s ease-out;
+}
+
+.grocery-navbar__btn button:hover {
+  color: var(--primary-color);
+  border: 4px solid var(--primary-color);
+  cursor: pointer;
 }
 
 .grocery-list {
@@ -28,34 +69,4 @@
 }
 
 .grocery-item__name {
-}
-
-.grocery-navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.grocery-filtering__input {
-  height: 30px;
-  border: 4px solid var(--secondary-bg);
-  outline: none;
-  transition: .3s ease-out;
-}
-
-.grocery-filtering__input:focus {
-  border: 4px solid var(--primary-color);
-}
-
-.grocery-sorting__btn {
-  font-size: 28px;
-  font-family: serif;
-  border: 4px solid var(--secondary-bg);
-  transition: .3s ease-out;
-}
-
-.grocery-sorting__btn:hover {
-  color: var(--primary-color);
-  border: 4px solid var(--primary-color);
-  cursor: pointer;
 }

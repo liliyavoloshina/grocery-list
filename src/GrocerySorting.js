@@ -6,10 +6,9 @@ class GrocerySorting extends React.Component {
   }
   render() {
     return (
-      <div className="grocery-sorting">
+      <div className="grocery-navbar__btn">
         <button
           onClick={() => this.handleSortByAmount()}
-          className="grocery-sorting__btn"
         >
           {this.props.sortByAmount ? (
             <i className="fas fa-sort-numeric-up-alt"></i>

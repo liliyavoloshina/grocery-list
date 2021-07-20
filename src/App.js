@@ -4,6 +4,7 @@ import data from './data.json'
 import GroceryList from './GroceryList'
 import GrocerySorting from './GrocerySorting'
 import GroceryFiltering from './GroceryFiltering'
+import GroceryNew from './GroceryNew'
 
 class App extends React.Component {
   constructor(props) {
@@ -27,12 +28,15 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
+        <GroceryNew />
         <div className="grocery-navbar">
-        <GroceryFiltering onFilterText={text => this.handleStateFilterText(text)} />
-        <GrocerySorting
-          onSortByAmount={sort => this.handleStateSortByAmount(sort)}
-          sortByAmount={this.state.sortByAmount}
-        />
+          <GroceryFiltering
+            onFilterText={text => this.handleStateFilterText(text)}
+          />
+          <GrocerySorting
+            onSortByAmount={sort => this.handleStateSortByAmount(sort)}
+            sortByAmount={this.state.sortByAmount}
+          />
         </div>
         <GroceryList
           products={data}
