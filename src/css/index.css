@@ -6,6 +6,9 @@
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
-  background: #B4C292;
+  background-image: url('../bc.jpg');
+  background-size: cover;
+  box-shadow:inset 0 0 0 2000px rgba(180,194,146, 0.3);
 }
