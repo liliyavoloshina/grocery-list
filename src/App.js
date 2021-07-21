@@ -1,6 +1,5 @@
 import React from 'react'
 import './css/style.css'
-// import data from './data.json'
 import GroceryList from './GroceryList'
 import GrocerySorting from './GrocerySorting'
 import GroceryFiltering from './GroceryFiltering'
@@ -36,11 +35,22 @@ class App extends React.Component {
   }
 
   handleStateAddNewItem(newItem) {
-    const updatedState = this.state.items.concat(newItem)
+    let updatedState
+    if (this.state.items) {
+      updatedState = this.state.items.slice()
+      updatedState.push(newItem)
+    } else {
+      updatedState = [newItem]
+    }
     localStorage.setItem('grocery-items', JSON.stringify(updatedState))
-    this.setState({
-      items: updatedState
-    })
+    this.setState({items: updatedState})
+  }
+
+  handleBoughtItem(item) {
+    const changedState = this.state.items.map(oldItem =>
+      oldItem.id === item.id ? { ...oldItem, bought: !oldItem.bought } : oldItem
+    )
+    console.log(changedState)
   }
 
   componentDidMount() {
@@ -50,7 +60,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <GroceryNew itemsLength={this.state.items.length} onAddNewItem={newItem => this.handleStateAddNewItem(newItem)} />
+        <GroceryNew
+          itemsLength={this.state.items ? this.state.items.length : 0}
+          onAddNewItem={newItem => this.handleStateAddNewItem(newItem)}
+        />
         <div className="grocery-navbar">
           <GroceryFiltering
             onFilterText={text => this.handleStateFilterText(text)}
@@ -65,6 +78,7 @@ class App extends React.Component {
           sortByPriority={this.state.sortByPriority}
           sortByAmount={this.state.sortByAmount}
           filterText={this.state.filterText}
+          onBoughtItem={item => this.handleBoughtItem(item)}
         />
       </div>
     )

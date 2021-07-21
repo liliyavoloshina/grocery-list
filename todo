@@ -1,9 +1,9 @@
 [x] search by list
 [x] filter list
 
-connect to localstorage
+[x] connect to localstorage
 
-add item
+[x] add item
 remove item
 edit item
 

@@ -4,13 +4,20 @@ export class GroceryNew extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      newItem: ''
+      newItemName: '',
+      newItemAmount: 0
     }
   }
-  
-  handleNewItem(e) {
+
+  handleNewItemName(e) {
     this.setState({
-      newItem: e.target.value
+      newItemName: e.target.value
+    })
+  }
+
+  handleNewItemAmount(e) {
+    this.setState({
+      newItemAmount: e.target.value
     })
   }
 
@@ -18,9 +25,9 @@ export class GroceryNew extends Component {
     e.preventDefault()
     this.props.onAddNewItem({
       id: this.props.itemsLength + 1,
-      name: this.state.newItem,
-      amount: 1,
-      bougth: false
+      name: this.state.newItemName,
+      amount: this.state.newItemAmount,
+      bought: false
     })
   }
 
@@ -29,9 +36,17 @@ export class GroceryNew extends Component {
       <form onSubmit={e => this.onSubmit(e)} className="grocery-navbar">
         <div className="grocery-navbar__input">
           <input
-            onChange={e => this.handleNewItem(e)}
-            value={this.state.newItem}
+            onChange={e => this.handleNewItemName(e)}
+            value={this.state.newItemName}
+            className="grocery-navbar__input-name"
             placeholder="Add new item..."
+          />
+          <input
+            type="number"
+            onChange={e => this.handleNewItemAmount(e)}
+            value={this.state.newItemAmount}
+            className="grocery-navbar__input-amount"
+            placeholder="How much?"
           />
         </div>
         <div className="grocery-navbar__btn">

@@ -2,11 +2,15 @@ import React from 'react'
 import './css/style.css'
 import GroceryItem from './GroceryItem'
 class GroceryList extends React.Component {
+  handleBoughtItem(e) {
+    this.props.onBoughtItem(e)
+  }
   render() {
     const sortByAmount = this.props.sortByAmount
     const filterText = this.props.filterText
     let sorted = []
     const products = []
+    if (this.props.products) {
     if (sortByAmount) {
       sorted = this.props.products.sort((a, b) => {
         return a.amount - b.amount
@@ -19,12 +23,25 @@ class GroceryList extends React.Component {
     sorted.forEach(p => {
       let nameDown = p.name.toLowerCase()
       let nameUp = p.name.toUpperCase()
-      if (nameDown.indexOf(filterText) === -1 && nameUp.indexOf(filterText) === -1) {
+      if (
+        nameDown.indexOf(filterText) === -1 &&
+        nameUp.indexOf(filterText) === -1
+      ) {
         return
       }
-      products.push(<GroceryItem key={p.id} product={p} />)
-    })
-    return <ul className="grocery-list">{products}</ul>
+      products.push(
+        <GroceryItem
+          onBought={e => this.handleBoughtItem(e)}
+          key={p.id}
+          product={p}
+        />
+      )
+    })}
+    if (this.props.products) {
+      return <ul className="grocery-list">{products}</ul>
+    } else {
+      return <p>No products...</p>
+    }
   }
 }
 
