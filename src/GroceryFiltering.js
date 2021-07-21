@@ -4,9 +4,8 @@ class GroceryFiltering extends React.Component {
   handleFilterText(e) {
     this.props.onFilterText(e.target.value)
   }
-  handleFilterBought(e) {
-    console.log(e)
-    // this.props.onFilterText(e.target.value)
+  handleFilterBought() {
+    this.props.onFilterBought(!this.props.filterBought)
   }
   render() {
     return (
@@ -17,7 +16,7 @@ class GroceryFiltering extends React.Component {
           placeholder="Search..."
         />
         <div className="grocery-navbar__wrapper-bought">
-          <label for="only-bougth" className="grocery-navbar__label-bought">
+          <label htmlFor="only-bougth" className="grocery-navbar__label-bought">
             Only bought
           </label>
           <input

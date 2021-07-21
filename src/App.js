@@ -11,7 +11,8 @@ class App extends React.Component {
     this.state = {
       items: [],
       sortByAmount: false,
-      filterText: ''
+      filterText: '',
+      filterBought: false
     }
   }
 
@@ -43,7 +44,7 @@ class App extends React.Component {
       updatedState = [newItem]
     }
     localStorage.setItem('grocery-items', JSON.stringify(updatedState))
-    this.setState({items: updatedState})
+    this.setState({ items: updatedState })
   }
 
   handleBoughtItem(item) {
@@ -51,7 +52,13 @@ class App extends React.Component {
       oldItem.id === item.id ? { ...oldItem, bought: !oldItem.bought } : oldItem
     )
     localStorage.setItem('grocery-items', JSON.stringify(changedState))
-    this.setState({items: changedState})
+    this.setState({ items: changedState })
+  }
+
+  handleStateFilterBought(bought) {
+    this.setState({
+      filterBought: bought
+    })
   }
 
   componentDidMount() {
@@ -68,6 +75,8 @@ class App extends React.Component {
         <div className="grocery-navbar">
           <GroceryFiltering
             onFilterText={text => this.handleStateFilterText(text)}
+            onFilterBought={bought => this.handleStateFilterBought(bought)}
+            filterBought={this.state.filterBought}
           />
           <GrocerySorting
             onSortByAmount={sort => this.handleStateSortByAmount(sort)}
@@ -79,6 +88,7 @@ class App extends React.Component {
           sortByPriority={this.state.sortByPriority}
           sortByAmount={this.state.sortByAmount}
           filterText={this.state.filterText}
+          filterBought={this.state.filterBought}
           onBoughtItem={item => this.handleBoughtItem(item)}
         />
       </div>
