@@ -22,6 +22,8 @@
 }
 
 .grocery-navbar__input {
+  display: flex;
+  align-items: center;
   width: 90%;
 }
 
@@ -46,7 +48,18 @@
 }
 
 .grocery-navbar__input-filtering {
-  width: 100%;
+  width: 75%;
+}
+.grocery-navbar__wrapper-bought {
+  display: flex;
+  align-items: center;
+  width: 20%;
+  margin-left: 5%;
+}
+
+.grocery-navbar__input-bought {
+  width: 20px;
+  margin-left: 1em;
 }
 
 .grocery-navbar__btn {
@@ -78,10 +91,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 1em;
+  font-size: 1.5em;
+  cursor: pointer;
 }
 
 .grosery-item-bought {
   text-decoration: line-through;
+  color: var(--secondary-color);
 }
 
 .grocery-item__name {

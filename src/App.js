@@ -38,7 +38,7 @@ class App extends React.Component {
     let updatedState
     if (this.state.items) {
       updatedState = this.state.items.slice()
-      updatedState.push(newItem)
+      updatedState.unshift(newItem)
     } else {
       updatedState = [newItem]
     }
@@ -50,7 +50,8 @@ class App extends React.Component {
     const changedState = this.state.items.map(oldItem =>
       oldItem.id === item.id ? { ...oldItem, bought: !oldItem.bought } : oldItem
     )
-    console.log(changedState)
+    localStorage.setItem('grocery-items', JSON.stringify(changedState))
+    this.setState({items: changedState})
   }
 
   componentDidMount() {
