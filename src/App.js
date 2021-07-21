@@ -29,7 +29,10 @@ class App extends React.Component {
   }
 
   handleStateItems() {
-    const data = JSON.parse(localStorage.getItem('grocery-items'))
+    let data = JSON.parse(localStorage.getItem('grocery-items'))
+    if (!data) {
+      data = []
+    }
     this.setState({
       items: data
     })
@@ -58,6 +61,16 @@ class App extends React.Component {
   handleStateFilterBought(bought) {
     this.setState({
       filterBought: bought
+    })
+  }
+
+  hanldeStateReset() {
+    localStorage.removeItem('grocery-items')
+    this.setState({
+      items: [],
+      sortByAmount: false,
+      filterText: '',
+      filterBought: false
     })
   }
 
@@ -90,6 +103,7 @@ class App extends React.Component {
           filterText={this.state.filterText}
           filterBought={this.state.filterBought}
           onBoughtItem={item => this.handleBoughtItem(item)}
+          onReset={() => this.hanldeStateReset()}
         />
       </div>
     )

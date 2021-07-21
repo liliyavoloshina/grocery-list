@@ -1,9 +1,13 @@
 import React from 'react'
 import './css/style.css'
 import GroceryItem from './GroceryItem'
+import GroceryReset from './GroceryReset'
 class GroceryList extends React.Component {
   handleBoughtItem(e) {
     this.props.onBoughtItem(e)
+  }
+  handleReset() {
+    this.props.onReset()
   }
   render() {
     const sortByAmount = this.props.sortByAmount
@@ -11,7 +15,7 @@ class GroceryList extends React.Component {
     const filterBought = this.props.filterBought
     let sorted = []
     const products = []
-    if (this.props.products) {
+    if (this.props.products.length > 0) {
       if (sortByAmount) {
         sorted = this.props.products.sort((a, b) => {
           return a.amount - b.amount
@@ -42,10 +46,19 @@ class GroceryList extends React.Component {
         )
       })
     }
-    if (this.props.products) {
-      return <ul className="grocery-list">{products}</ul>
+    if (this.props.products.length > 0) {
+      return (
+        <div>
+          <GroceryReset onReset={() => this.handleReset()} />
+          {products.length > 0 ? (
+            <ul className="grocery-list">{products}</ul>
+          ) : (
+            <div className="note">No products by such options...</div>
+          )}
+        </div>
+      )
     } else {
-      return <p>No products...</p>
+      return <div className="note">Add some grocery!</div>
     }
   }
 }

@@ -5,7 +5,7 @@ export class GroceryNew extends Component {
     super(props)
     this.state = {
       newItemName: '',
-      newItemAmount: 0
+      newItemAmount: ''
     }
   }
 
@@ -28,6 +28,10 @@ export class GroceryNew extends Component {
       name: this.state.newItemName,
       amount: this.state.newItemAmount,
       bought: false
+    })
+    this.setState({
+      newItemName: '',
+      newItemAmount: ''
     })
   }
 
